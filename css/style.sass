@@ -1,0 +1,725 @@
+﻿$brown: #C6A986
+$green: #96C54C
+$orange: #FA6400
+$blue: #02AAC2
+=placeholder($color)
+	&::-webkit-input-placeholder 
+		color: $color
+	&::-moz-placeholder 
+		color: $color
+	&:-ms-input-placeholder
+		color: $color
+		
+=pos
+	display: block
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	
+=obj
+	object-fit: cover
+	object-position: center
+
+html
+	box-sizing: border-box
+
+*,:before,:after
+	box-sizing: inherit
+	//для IE10
+	flex: 0 1 auto
+
+body
+	margin: 0
+	padding: 0
+	font: normal 500 18px/normal 'Museo Sans Cyrl',sans-serif
+	color: #2d2d2d
+	position: relative
+img,
+iframe,
+video
+	max-width: 100%
+	user-select: none
+
+a img
+	/*для IE10*/
+	border: none
+a
+	color: inherit
+	text-decoration-color: $brown
+
+p
+	margin: 0 0 10/18*1em
+	&:last-child
+		margin: 0
+mark
+	background-color: $brown
+	white-space: pre-wrap
+	color: #fff
+	text-shadow:  0 1px 2px rgba(0, 0, 0, 0.22)
+	
+em
+	font-style: inherit
+	border-bottom: 2px dashed $brown
+
+strong
+	font-weight: 900
+	
+*:focus
+	outline: none
+
+*:invalid
+	box-shadow: none
+
+/*элементы форм*/
+input,textarea,button,select
+	font: inherit
+	color: inherit	
+	
+textarea
+	resize: none
+	overflow: auto /*опять же для IE*/
+	
+[type=text],
+[type=email],
+[type=tel],
+[type=password],
+[type=url],
+textarea
+	display: block
+	width: 100%
+	margin: 0 0 20px
+	padding: 15px 20px
+	line-height: normal
+	border: 1px solid #E1E1E1
+	
+//select
+	appearance: none
+	padding: 10.5px 40px 10.5px 20px
+	background: url(../img/icons/angle.svg) no-repeat right 19px center/11px auto
+	&::-ms-expand
+		display: none
+		
+//[type=search]
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration
+		display: none
+		
+//[type=number]
+	-moz-appearance: textfield
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button
+		appearance: none
+		margin: 0
+		
+/*кнопки*/
+button,
+[type=submit],
+[type=reset],
+[type=image]
+	cursor: pointer
+.btn
+	appearance: none
+	border: none
+	display: inline-block
+	vertical-align: top
+	font: normal 900 18px/46px 'Museo Sans Cyrl',sans-serif
+	background-color: $brown
+	color: #fff
+	padding: 0 1em
+	max-width: 100%
+	overflow: hidden
+	user-select: none
+	text:
+		align: center
+		overflow: ellipsis
+		shadow: none
+		decoration: none
+	&--white
+		background-color: #fff
+		color: #FF8900
+	&--orange
+		background-color: #FF8900
+	
+/*заголовки*/
+h1,h2,h3,h4,h5,h6
+	margin: 0 0 1em
+h1,h2
+	font-size: 43px
+	line-height: 52/43*1
+	letter-spacing: .62/43*1em
+	font-weight: 900
+	text-transform: uppercase
+	margin: 0 0 .5em
+	small
+		font-size: 33px
+		font-weight: 500
+		line-height: 38/33
+		text-transform: none
+		letter-spacing: 0
+		display: block
+h2
+	text-align: center
+	&:after
+		content: ''
+		display: block
+		width: 167px
+		border-top: 9px solid $brown
+		margin: .6em auto 0	
+h3
+	font-size: inherit
+	font-weight: 900
+	margin: 0 0 .55em
+/*списки*/
+ul,ol
+	margin: 0 0 1em
+ul
+	list-style: none
+	margin: 0 0 .56em
+	padding: 0 0 0 1.3em
+	>li
+		position: relative
+		margin: 0 0 7px
+		&:before
+			content: "—"
+			display: inline-block
+			position: absolute
+			left: -1.3em
+=unlist
+	padding: 0
+	margin: 0
+	>li
+		position: static
+		margin: 0
+		&:before
+			display: none
+		
+/*таблицы*/
+/*контейнеры*/
+.wrapper
+	max-width: 1190px
+	margin: 0 auto
+	padding: 0 15px
+.box
+	display: flex
+	flex-wrap: wrap
+	margin: 0 -10px
+/*модалные окна*/
+.fancybox-slide--html
+	.fancybox-close-small
+		padding: 5px
+		color: #000
+		path
+			stroke: currentColor
+			stroke-width: 1px
+.modal
+	display: none
+	background-color: #fff
+	width: 500px
+	max-width: 100%
+	padding: 45px 55px 55px
+	text-align: center
+	border: 5px solid #000
+	border-radius: 20px
+	&--simple
+		width: 400px
+		padding: 40px 50px 50px 40px
+		text-align: left
+	h3
+		font-size: 33px
+		line-height: 38/33*1
+		font-weight: 500
+		margin: 0
+	p
+		margin: 0 0 1em
+		&:last-child
+			margin: 0
+/*ШАПКА*/
+.logo
+	display: inline-block
+	img
+		display: block
+		width: 100%
+.header
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	padding: 40px 0
+	z-index: 2
+	&__logo
+		width: 200px
+/*ОСНОВНОЕ СОДЕРЖИМОЕ*/
+.top-block
+	padding: 113px 0
+	min-height: 717px //717/1366*100vw
+	background: url(../img/top-bg.png) no-repeat left bottom/cover
+	position: relative
+	&:before
+		content: url(../img/pluses.svg)
+		display: inline-block
+		position: absolute
+		left: calc(50% - 605px)
+		bottom: 240px
+	&__text
+		max-width: 300px
+		font-size: 20px
+		margin-left: 40px
+		line-height: 1.3
+	&__title
+		font-size: 33px
+		font-weight: 500
+		margin: 0 0 3px
+		text-transform: none
+		text-align: inherit
+		&:after
+			display: none
+	&__slogan
+		width: 150%		
+		position: relative
+		left: -10px
+		font:
+			weight: 900
+			size: 43px
+		text-transform: uppercase		
+		letter-spacing: .61/43*1em
+		line-height: 1.7em
+		margin: 0 0 7px
+	&__footnote
+		font-size: 14px
+		font-weight: 300
+		border-top: 1px solid #979797
+		padding-top: .6em
+		margin: 50px 10px 0 0
+.schema
+	padding: 34px 0 93px
+	counter-reset: schema
+	&__head
+		background: url(../img/blots/double.svg) no-repeat center/contain
+		font-size: 33px
+		color: #fff
+		text-align: center
+		padding: 74px 110px 80px 58px
+		max-width: 685px
+		margin: 0 auto 10px
+		strong
+			display: block
+			font-size: 43px
+			font-weight: 900
+			background-color: #fff
+			line-height: 68/43*1
+			padding: 0 24px
+			width: max-content
+			max-width: 100%
+			margin: 7px auto 0
+			color: #3f3f3f
+			letter-spacing: .61/43*1em
+	&__body
+		display: flex
+		align-items: flex-start
+		justify-content: center
+	&__item
+		width: 360px
+		position: relative
+		text-align: center
+		color: #000
+		margin: 70px 10px 10px
+		padding: 40px 10px
+		&:after
+			content: ''
+			+pos
+			background: url(../img/outline1.svg) no-repeat left center/contain
+			z-index: -1
+		&:before
+			counter-increment: schema
+			content: counter(schema)
+			font-size: 80px
+			line-height: 1
+			color: $green
+			font-weight: bold
+			position: absolute
+			left: -18px
+			top: calc(55% - .5em)
+		&:nth-child(2)
+			margin-top: 108px
+			&:after
+				background-image: url(../img/outline2.svg)
+			&:before
+				color: $blue
+				left: -8px
+				top: calc(46% - 0.5em)
+		&:nth-child(3)
+			&:after
+				background-image: url(../img/outline3.svg)
+			&:before
+				color: $orange
+	&__arrow
+		display: inline-block
+		position: absolute
+		left: 50%
+		bottom: calc(100% + 20px)
+		transform-origin: center bottom
+	&__item:nth-child(1) &__arrow
+		transform: translate(90px,20px) rotate(47deg)
+	&__item:nth-child(3) &__arrow		
+		transform: translate(-103px, 20px) rotate(-45deg)
+		
+.section
+	padding: 87px 0 27px
+	background: url(../img/blots/4.svg) no-repeat center
+	&__head
+		margin: 0 0 35px
+		text-align: center
+	&__body
+		position: relative
+	&__number
+		font-size: 240px
+		font-weight: bold
+		line-height: 1
+		position: absolute
+		top: 60px
+		left: -70px
+		color: $brown
+	&--green
+		padding: 61px 0 110px
+		background: url(../img/blots/1.svg) no-repeat calc(50% - 66px) 0
+		em
+			border-color: $green
+		h2:after,h3:after
+			border-color: $green
+		.section__number
+			color: $green
+	&--blue
+		padding: 12px 0 91px
+		background: url(../img/blots/2.svg) no-repeat left calc(50% + 250px) bottom 0
+		em
+			border-color: $blue
+		h2:after,h3:after
+			border-color: $blue
+		.section__number
+			color: $blue
+	&--orange
+		padding: 45px 0 55px
+		background: url(../img/blots/3.svg) no-repeat left calc(50% - 310px) bottom 0
+		em
+			border-color: $orange
+		h2:after,h3:after
+			border-color: $orange
+		.section__number
+			color: $orange
+			left: 11px
+		
+.comics
+	display: flex
+	flex-wrap: wrap
+	margin: 0 -10px 43px
+	&--small
+		max-width: 976px
+		margin: 0 auto 43px
+	&:last-child
+		margin-bottom: 0
+	&__item
+		margin: 0 10px 20px
+		flex: 1 1 auto
+		border: 5px solid #000
+		overflow: hidden
+		position: relative
+		z-index: 1
+		&:first-child
+			border-top-left-radius: 100px
+		&:last-child
+			border-bottom-right-radius: 100px
+		&:nth-child(3)
+			border-top-right-radius: 100px
+		&:nth-child(4)
+			border-bottom-left-radius: 100px
+		img
+			display: block
+			width: 100%
+			height: 100%
+			+obj
+	&--small &__item
+		&:nth-child(2)
+			border-bottom-left-radius: 100px
+		&:nth-child(3)
+			border-top-right-radius: 0
+	&__text-item
+		width: 372px
+		margin: 0 10px 20px
+		padding-top: 23px
+	&__subtitle
+		font-size: 33px
+		line-height: 38/33*1
+		font-weight: 900
+		small
+			font-weight: 500
+			font-size: inherit
+		&:after
+			content: ''
+			display: block
+			width: 167px
+			margin: .8em 0 0
+			border-bottom: 9px solid $brown
+	&--mod &__item
+		&:nth-child(2)
+			border-top-right-radius: 100px
+		&:nth-child(3)
+			border-top-right-radius: 0
+			border-bottom-left-radius: 100px
+		&:nth-child(4)
+			border-bottom-left-radius: 0
+	
+
+.card
+	width: 570px
+	margin: 0 10px 20px
+	background-color: #F0F0F0
+	border-radius: 5px
+	text-align: center
+	padding: 30px 20px 40px
+	&--orange
+		background-color: #FF8900
+		color: #fff
+	&--composite
+		display: flex
+		align-items: flex-start
+		padding-left: 16px
+		padding-right: 37px
+		text-align: left
+	&__sidebar
+		width: 126px
+		margin: 0 32px 0 0
+		flex: 0 0 auto
+	&__content
+		width: calc(100% - 126px)
+		flex: 1 1 auto
+	img
+		margin: 0 auto 8px
+	.btn
+		margin-top: .75em
+.catalog
+	padding: 50px 0
+	&__head
+		text-align: center
+		margin: 0 0 2.4em
+	&__footer
+		text-align: center
+		margin: .4em 0 0
+.info-block
+	padding: 106px 0 145px
+	background: url(../img/blots/5.svg) no-repeat calc(50% + 318px) top/auto 100%
+	overflow: hidden
+	&__head
+		text-align: center
+		margin: 0 0 1.8em
+	&__body
+		max-width: 560px
+		margin: 0 auto
+		position: relative
+		&:before
+			content: '!'
+			display: inline-block
+			position: absolute
+			font-size: 270px
+			font-weight: bold
+			line-height: 1
+			top: 0
+			left: -40px
+			color: $brown
+	&__item
+		background-color: #fff
+		border: 5px solid #000
+		border-radius: 10px
+		padding: 48px 35px
+		width: 270px
+		margin: 0 18px 18px 0
+		float: left
+		text-align: center
+		position: relative
+		&:nth-child(3n-1)
+			float: right
+			margin: 0
+			padding: 30px 35px
+			text-align: left
+			min-height: 430px
+		.btn
+			margin: 0 0 .75em
+			&:last-child
+				margin: 0
+		ul
+			color: $brown
+			a
+				text-decoration: none
+@supports(display: grid)
+	.info-block
+		&__body
+			overflow: visible
+			display: grid
+			grid-template-columns: repeat(2, 1fr)
+			grid-gap: 18px
+		&__item
+			width: auto
+			margin: 0
+			float: none
+			&:nth-child(3n-1)
+				float: none
+				grid-row: span 2
+				min-height: 0
+.event
+	display: flex
+	align-items: center
+	padding: 40px 0 70px
+	&__head
+		width: calc(50% - 15px)
+		margin-right: 15px
+		background-color: #2A2A2A
+		border-radius: 0 100px 100px 0
+		color: #fff
+		padding: 100px 90px 90px calc(50% - 580px)
+		p
+			&:first-child
+				font-size: 33px
+				line-height: 38/33*1
+				margin: 0 0 .4em
+			&:last-child
+				margin: 0
+		h2
+			margin: 0 0 .3em
+			text-align: inherit
+			&:after
+				display: none
+	&__body
+		width: 400px
+		padding-right: 20px
+		margin-left: 100px
+		.btn
+			margin-top: 1em
+.zoom-pic
+	display: block
+	position: relative
+	border-radius: 30px
+	border: 5px solid #000
+	margin: 0 0 10px
+	overflow: hidden
+	&:before
+		content: '\e908'
+		font: normal normal 53px/1 icomoon
+		display: inline-block
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%,-50%)
+	img
+		display: block
+		width: 100%
+.file-link
+	display: inline-flex
+	align-items: center
+	vertical-align: top
+	width: 250px
+	max-width: calc(100% - 20px)
+	text-decoration: none
+	margin: 0 20px 20px 0
+	user-select: none
+	&:before
+		content: '\e909'
+		font: normal normal 58px/1 icomoon
+		display: inline-block
+		color: $brown
+		margin: 0 7px 0 0
+		flex: 0 0 auto
+	&[href*=".pdf"]:before
+		content: '\e904'
+	&[href*=".jpg"]:before
+		content: '\e903'
+	&[href*=".zip"]:before
+		content: '\e907'
+	span
+		display: inline-block
+		width: calc(100% - 65px)
+		flex: 1 1 auto
+		text-decoration: underline
+		text-decoration-color: $brown		
+.files
+	padding: 88px 0 93px
+	background: url(../img/blots/6.svg) no-repeat calc(50% - 740px) 55px
+	&__wrapper
+		display: flex
+		align-items: flex-start
+	&__pic
+		width: 440px
+		margin: 0 50px 0 0
+		flex: 0 0 auto
+		text-align: center
+	&__text
+		width: calc(100% - 490px)
+		flex: 1 1 auto
+		h2
+			text-align: left
+			margin: 0 0 .6em
+			&:after
+				margin: .6em 0 0
+
+/*ПОДВАЛ*/
+.footer
+	position: relative
+	background-color: #2A2A2A
+	color: #fff	
+	&:before
+		content: ''
+		display: block
+		position: absolute
+		bottom: calc(100% - 1px)
+		left: 0
+		width: 100%
+		height: 69px
+		background: url(../img/footer-bg.svg) no-repeat center/100% 100%
+	&__topline
+		padding: 87px 0 53px
+	&__quote
+		font-size: 43px
+		line-height: 73/43*1
+		margin: 0
+		font-weight: 900
+		text-transform: uppercase
+		letter-spacing: .61/43*1em
+		&:after
+			content: attr(cite)
+			display: block
+			text-align: right
+			font-weight: 500
+			text-transform: none
+			margin: .22em 0 0
+	&__bottomline
+		border-top: 1px solid $brown
+		padding: 30px 0 75px
+		display: flex
+		flex-wrap: wrap
+		align-items: flex-start
+		margin: 0 -10px
+		p
+			margin: 0 0 20/18*1em
+			&:last-child
+				margin: 0
+	&__column
+		width: calc(100% / 3 - 20px)
+		margin: 0 10px
+	&__logo
+		width: 270px
+		margin: 0 0 22px
+	&__social
+		text-align: right
+		font-size: 40px
+		a
+			vertical-align: top
+			margin-right: 23px
+			text-decoration: none
+		.icon-vk
+			font-size: 1.3em
+			line-height: .7
+		
+/*АДАПТИВ*/
+@import "adaptive"
