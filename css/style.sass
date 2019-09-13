@@ -36,11 +36,16 @@ body
 	font: normal 500 18px/normal 'Museo Sans Cyrl',sans-serif
 	color: #2d2d2d
 	position: relative
+	min-width: 320px
 img,
 iframe,
 video
 	max-width: 100%
 	user-select: none
+	
+svg
+	display: inline-block
+	height: auto
 
 a img
 	/*для IE10*/
@@ -155,9 +160,9 @@ h1,h2
 	text-transform: uppercase
 	margin: 0 0 .5em
 	small
-		font-size: 33px
+		font-size: 33/43*1em
 		font-weight: 500
-		line-height: 38/33
+		line-height: 38/33*1
 		text-transform: none
 		letter-spacing: 0
 		display: block
@@ -237,6 +242,16 @@ ul
 		margin: 0 0 1em
 		&:last-child
 			margin: 0
+/*классы-модификаторы*/
+.text
+	&-center
+		text-align: center
+	&-left
+		text-align: left
+	&-right
+		text-align: right
+	&-justify
+		text-align: justify
 /*ШАПКА*/
 .logo
 	display: inline-block
@@ -255,15 +270,15 @@ ul
 /*ОСНОВНОЕ СОДЕРЖИМОЕ*/
 .top-block
 	padding: 113px 0
-	min-height: 717px //717/1366*100vw
-	background: url(../img/top-bg.png) no-repeat left bottom/cover
+	min-height: 738px //717/1366*100vw
+	background: url(../img/top-bg.png) no-repeat center bottom/cover
 	position: relative
 	&:before
 		content: url(../img/pluses.svg)
 		display: inline-block
 		position: absolute
-		left: calc(50% - 605px)
-		bottom: 240px
+		left: calc(50% - 603px)
+		bottom: 262px
 	&__text
 		max-width: 300px
 		font-size: 20px
@@ -295,7 +310,7 @@ ul
 		padding-top: .6em
 		margin: 50px 10px 0 0
 .schema
-	padding: 34px 0 93px
+	padding: 12px 0 93px
 	counter-reset: schema
 	&__head
 		background: url(../img/blots/double.svg) no-repeat center/contain
@@ -307,7 +322,7 @@ ul
 		margin: 0 auto 10px
 		strong
 			display: block
-			font-size: 43px
+			font-size: 43/33*1em
 			font-weight: 900
 			background-color: #fff
 			line-height: 68/43*1
@@ -323,6 +338,7 @@ ul
 		justify-content: center
 	&__item
 		width: 360px
+		max-width: 100%
 		position: relative
 		text-align: center
 		color: #000
@@ -368,8 +384,18 @@ ul
 		transform: translate(-103px, 20px) rotate(-45deg)
 		
 .section
-	padding: 87px 0 27px
+	padding: 87px 0 40px
 	background: url(../img/blots/4.svg) no-repeat center
+	position: relative
+	overflow: hidden
+	&:before,&:after
+		display: inline-block
+		position: absolute
+	&:after
+			content: url(../img/pluses1.svg)
+			bottom: 0
+			left: calc(50% + 580px)
+			transform: rotate(90deg)
 	&__head
 		margin: 0 0 35px
 		text-align: center
@@ -384,8 +410,18 @@ ul
 		left: -70px
 		color: $brown
 	&--green
-		padding: 61px 0 110px
+		padding: 61px 0 115px
 		background: url(../img/blots/1.svg) no-repeat calc(50% - 66px) 0
+		&:before
+			content: url(../img/pluses.svg)
+			left: calc(50% + 559px)
+			top: 146px
+			transform: rotate(180deg)
+		&:after
+			content: url(../img/pluses1.svg)
+			bottom: 140px
+			left: calc(50% - 650px)
+			transform: none
 		em
 			border-color: $green
 		h2:after,h3:after
@@ -395,6 +431,16 @@ ul
 	&--blue
 		padding: 12px 0 91px
 		background: url(../img/blots/2.svg) no-repeat left calc(50% + 250px) bottom 0
+		&:before
+			content: url(../img/pluses.svg)
+			left: calc(50% - 608px)
+			top: 254px
+			transform: rotate(-90deg)
+		&:after
+			content: url(../img/pluses1.svg)
+			bottom: 50px
+			left: calc(50% + 560px)
+			transform: rotate(90deg)
 		em
 			border-color: $blue
 		h2:after,h3:after
@@ -404,14 +450,18 @@ ul
 	&--orange
 		padding: 45px 0 55px
 		background: url(../img/blots/3.svg) no-repeat left calc(50% - 310px) bottom 0
+		&:after
+			content: url(../img/pluses1.svg)
+			bottom: 32px
+			left: calc(50% - 535px)
+			transform: none
 		em
 			border-color: $orange
 		h2:after,h3:after
 			border-color: $orange
 		.section__number
 			color: $orange
-			left: 11px
-		
+			left: 11px		
 .comics
 	display: flex
 	flex-wrap: wrap
@@ -423,29 +473,27 @@ ul
 		margin-bottom: 0
 	&__item
 		margin: 0 10px 20px
-		flex: 1 1 auto
-		border: 5px solid #000
-		overflow: hidden
+		flex: 1 1 auto		
 		position: relative
 		z-index: 1
-		&:first-child
+	&__pic
+		border: 5px solid #000
+		height: 100%
+		overflow: hidden
+		position: relative
+		&--tl
 			border-top-left-radius: 100px
-		&:last-child
-			border-bottom-right-radius: 100px
-		&:nth-child(3)
+		&--tr
 			border-top-right-radius: 100px
-		&:nth-child(4)
+		&--bl
 			border-bottom-left-radius: 100px
+		&--br
+			border-bottom-right-radius: 100px
 		img
 			display: block
 			width: 100%
 			height: 100%
 			+obj
-	&--small &__item
-		&:nth-child(2)
-			border-bottom-left-radius: 100px
-		&:nth-child(3)
-			border-top-right-radius: 0
 	&__text-item
 		width: 372px
 		margin: 0 10px 20px
@@ -463,16 +511,52 @@ ul
 			width: 167px
 			margin: .8em 0 0
 			border-bottom: 9px solid $brown
-	&--mod &__item
-		&:nth-child(2)
-			border-top-right-radius: 100px
-		&:nth-child(3)
-			border-top-right-radius: 0
-			border-bottom-left-radius: 100px
-		&:nth-child(4)
-			border-bottom-left-radius: 0
-	
-
+	&__balloon
+		display: block
+		position: absolute
+		top: -5px
+		left: -5px
+		z-index: 1
+		text-align: center
+		max-width: calc(100% + 10px)
+		/*для удобного указания высоты foreignObject в строках: 2.5em - 2 строки, 3.75em - 3 строки и т.п. */
+		line-height: 1.25	
+		&--right
+			left: auto
+			right: -5px
+		&--full
+			width: calc(100% + 10px)
+			height: auto
+		&--center
+			left: 50%
+			transform: translateX(-50%)
+		&--some-left
+			left: 25px
+		path
+			fill: #fff
+			stroke: #000
+			stroke-width: 5px
+			vector-effect: non-scaling-stroke
+	&__item-footer
+		display: flex
+		align-items: center
+		justify-content: space-between
+		justify-content: space-evenly
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 100%
+		transform: translateY(calc(50% - 2.5px))
+	&__caption
+		display: inline-block
+		background-color: $brown
+		font-size: 16px
+		line-height: 22/16*1
+		font-weight: 900
+		color: #fff
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.19)
+		padding: 0 .75em
+		margin: 0 5px
 .card
 	width: 570px
 	margin: 0 10px 20px
@@ -501,7 +585,7 @@ ul
 	.btn
 		margin-top: .75em
 .catalog
-	padding: 50px 0
+	padding: 86px 0 50px
 	&__head
 		text-align: center
 		margin: 0 0 2.4em
@@ -624,6 +708,7 @@ ul
 	text-decoration: none
 	margin: 0 20px 20px 0
 	user-select: none
+	text-align: left
 	&:before
 		content: '\e909'
 		font: normal normal 58px/1 icomoon

@@ -1,12 +1,260 @@
-﻿@media(max-width:1199px)
+﻿@media(max-width:1259px)
+	h1,h2
+		font-size: 36px
+		small
+			margin: .25em auto
 	.wrapper
 		max-width: 992px
+	.schema
+		padding: 12px 0 40px
+		&__item
+			font-size: 16px
+			padding: 40px 20px
+			&:before
+				display: none
+	.comics
+		&--small
+			width: auto
+			margin-left: -10px
+			margin-right: -10px
+		&__item
+			&--lg-last
+				order: 1
+		&__pic
+			border-radius: 0
+		&__balloon
+			&--some-left
+				left: -5px
+		&__text-item
+			width: 100%
+			padding: 23px 0
+			text-align: center
+		&__subtitle
+			&:after
+				margin: .8em auto 0
+	.card
+		width: 471px
+	.event
+		&__head
+			padding: 60px 60px 60px calc(50% - 481px)
+	.footer
+		&__quote
+			font-size: 36px
   
-//@media(max-width:991px)
-	
-
-//@media(max-width:767px)
-	
-
-//@media(max-width:480px)
-	
+@media(max-width:991px)
+	.top-block
+		padding: 0
+		min-height: 0
+		&__wrapper
+			padding: 0
+		&__text
+			max-width: 100%
+			margin: 0
+			background: rgba(255,255,255,.75)
+			padding: 100px 40px
+		&__slogan
+			width: auto
+	.schema
+		&__head
+			font-size: 27px
+			padding: 60px
+			margin: 0 auto 60px
+		&__body
+			display: block
+		&__item
+			margin: 0 auto 20px
+			font-size: inherit
+			padding: 40px 10px			
+			&:nth-child(2)
+				margin-top: 0
+			&:before
+				display: inline-block
+		&__arrow
+			display: none
+	.section
+		padding: 35px 0
+		&:before,&:after
+			display: none
+		&__number
+			display: none
+	.comics
+		&__item
+			width: calc(50% - 20px)
+			&--md-wide
+				width: calc(100% - 20px)
+		&__pic
+			img
+				min-height: 250px
+	.card
+		flex: 1 1 auto
+	.event
+		display: block
+		padding: 40px 15px
+		&__head
+			padding: 30px
+			border-radius: 30px
+			width: auto
+			margin: 0 0 30px
+			text-align: center
+			br
+				display: none
+			p
+				&:first-child
+					font-size: 1.6em
+		&__body
+			width: auto
+			margin: 0
+			padding: 0
+			text-align: center
+	.files
+		&__wrapper
+			display: block
+		&__pic
+			max-width: 100%
+			margin: 0 auto 30px
+		&__text
+			width: auto
+			text-align: center
+			h2
+				text-align: inherit
+				&:after
+					margin-left: auto
+					margin-right: auto
+			br
+				display: none
+		&__links
+			padding-top: 35px
+	.footer
+		&:before
+			background-size: auto 100%
+		&__topline
+			padding: 50px 0 30px
+		&__quote
+			font-size: 32px
+		&__bottomline
+			display: block
+			margin: 0
+			text-align: center
+			padding: 30px 0
+		&__column
+			width: auto
+			margin: 0 0 20px
+			&:last-child
+				margin-bottom: 0
+		&__social
+			margin-top: 30px
+			text-align: inherit
+			a
+				margin: 0 15px 15px				
+@media(max-width:767px)
+	.header
+		text-align: center
+	.top-block
+		&__text
+			text-align: center
+		&__slogan
+			position: static
+			line-height: 1.35
+		&__footnote
+			margin-right: 0
+	.schema
+		&__head
+			padding: 40px
+			font-size: 22px
+	.comics
+		max-width: 480px
+		display: block
+		margin-left: auto
+		margin-right: auto
+		&__item
+			width: 100%
+			margin: 0 0 20px
+			&:last-child				
+				margin: 0
+		&__item:first-child &__pic
+			border-radius: 30px 30px 0 0
+		&__item:last-child &__pic
+			border-radius: 0 0 30px 30px
+		&__caption
+			&:not(:only-child)
+				display: none
+		&__text-item
+			margin: 0 0 20px
+	.info-block
+		padding: 40px 0
+		&__body
+			display: block
+			&:before
+				display: none
+		&__item
+			margin: 0 0 18px
+			float: none
+			width: auto
+			&:nth-child(3n-1)
+				min-height: 0
+				margin: 0 0 18px
+	.files
+		padding: 30px 0 70px
+		
+@media(max-width:479px)
+	body
+		font-size: 16px
+	h1,h2
+		font-size: 24px
+		&:after
+			border-width: 4px
+	.modal
+		padding: 40px 20px 50px
+		h3
+			font-size: 26px
+	.top-block
+		&__text
+			padding: 100px 20px
+			font-size: inherit
+		&__title
+			font-size: 28px
+		&__slogan
+			font-size: 30px
+	.schema
+		padding: 30px 0 40px
+		&__head
+			font-size: 20px
+			background: none
+			padding: 0
+			color: inherit
+			margin: 0 auto 25px
+			strong
+				font-size: 1.2em
+				padding: .5em
+				background-color: $brown
+				color: #fff
+		&__item
+			padding: 40px 20px
+			margin: 0 auto
+			&:nth-child(2)
+				margin: 0 auto
+			&:before
+				display: none			
+	.comics
+		&__balloon
+			font-size: 18px
+		&__subtitle
+			font-size: 24px
+			&:after
+				border-width: 4px
+	.card
+		padding: 30px 20px 40px
+		&--composite
+			display: block
+			text-align: center
+		&__sidebar
+			width: auto
+			margin: 0
+		&__content
+			width: auto
+	.footer
+		&__quote
+			font-size: 20px
+			line-height: 1.35
+		&__social
+			font-size: 30px
