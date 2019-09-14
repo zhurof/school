@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Вёрстка</title>
-	<meta name="viewport" content="width=device-width, shrink-to-fit=no" />	
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />	
 	<link rel="stylesheet" href="css/fonts.css" />	
 	<link rel="stylesheet" href="css/font-awesome.css" />
 	<link rel="stylesheet" href="libs/fancybox/jquery.fancybox.min.css" />
@@ -11,12 +11,18 @@
 </head>
 <body>
 	<header class="header">
-		<div class="wrapper">
+		<div class="wrapper header__wrapper">
 			<a href="/" class="logo header__logo"><img src="img/logo.svg" alt=""></a>
+			<ul class="header__menu">
+				<li><a href="#concept">Концепция</a></li>
+				<li><a href="#result">Результат</a></li>
+				<li><a href="#">Импакт</a></li>				
+			</ul>
+			<span class="menu-btn"></span>
 		</div>
 	</header>
 	<main>
-		<div class="top-block">
+		<div class="top-block" id="concept">
 			<div class="wrapper top-block__wrapper">
 				<div class="top-block__text">
 					<h2 class="top-block__title">Концепция</h2>
@@ -69,7 +75,7 @@
 								<svg class="comics__balloon comics__balloon--full" width="373" height="92" viewBox="0 0 373 92" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
 									<path d="M2.50586 2.97754H371.506V66.3856C370.644 66.5435 369.521 66.7484 368.158 66.9946C364.68 67.6228 359.64 68.5205 353.394 69.598C340.901 71.753 323.588 74.6262 304.307 77.4991C265.696 83.2526 219.371 88.9775 188.039 88.9775C156.705 88.9775 109.862 83.2521 70.7327 77.4984C51.1936 74.6253 33.6218 71.752 20.9347 69.5969C14.5915 68.5194 9.47025 67.6216 5.93582 66.9934C4.53601 66.7446 3.38513 66.5381 2.50586 66.3794V2.97754Z"/>
 									<foreignObject x="15" y="15" width="344" height="2.5em">
-										<div class="text-left"><strong>Педагоги</strong> мотивированы, обладают современными навыками и знаниями</div>
+										<div><strong>Педагоги</strong> мотивированы, обладают современными навыками и знаниями</div>
 									</foreignObject>
 								</svg>
 								<img src="img/comics/green/2.jpg" alt="">
@@ -264,7 +270,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="section">
+		<div class="section" id="result">
 			<div class="wrapper">
 				<div class="section__head">
 					<h2>школа —центр социума: эффект</h2>
@@ -282,9 +288,7 @@
 								</svg>
 								<img src="img/comics/brown/1.jpg" alt="">
 							</div>
-							<div class="comics__item-footer">
-								<span class="comics__caption">Через 5 лет</span>
-							</div>
+							<span class="comics__caption">Через 5 лет</span>
 						</div>
 						<div class="comics__item comics__item--lg-last">
 							<div class="comics__pic comics__pic--tr">
@@ -296,11 +300,7 @@
 								</svg>
 								<img src="img/comics/brown/2.jpg" alt="">
 							</div>
-							<div class="comics__item-footer">
-								<span class="comics__caption">Краткосрочно 1 год</span>
-								<span class="comics__caption">Через 5 лет</span>
-								<span class="comics__caption">Краткосрочно 1 год</span>
-							</div>
+							<span class="comics__caption">Через 5 лет</span>
 						</div>
 						<div class="comics__item">
 							<div class="comics__pic comics__pic--bl">
@@ -312,9 +312,7 @@
 								</svg>
 								<img src="img/comics/brown/3.jpg" alt="">
 							</div>
-							<div class="comics__item-footer">
-								<span class="comics__caption">Через 10 лет</span>
-							</div>
+							<span class="comics__caption">Через 10 лет</span>
 						</div>
 						<div class="comics__item">
 							<div class="comics__pic">
@@ -326,9 +324,7 @@
 								</svg>
 								<img src="img/comics/brown/4.jpg" alt="">
 							</div>
-							<div class="comics__item-footer">
-								<span class="comics__caption">Через 20 лет</span>
-							</div>
+							<span class="comics__caption">Через 20 лет</span>
 						</div>
 						<div class="comics__item">
 							<div class="comics__pic comics__pic--br">
@@ -340,9 +336,7 @@
 								</svg>
 								<img src="img/comics/brown/5.jpg" alt="">
 							</div>
-							<div class="comics__item-footer">
-								<span class="comics__caption">Через 20 лет</span>
-							</div>
+							<span class="comics__caption">Через 20 лет</span>
 						</div>
 					</div>
 				</div>
@@ -473,6 +467,7 @@
 			<input type="tel" placeholder="Номер телефона">
 			<button class="btn btn--orange">Отправить</button>
 		</form>
+		<div class="modal__notation">Отправляя форму вы соглашаетесь с политикой конфиденциальности</div>
 	</div>
 	<div class="modal modal--simple" id="details">
 		<ul>

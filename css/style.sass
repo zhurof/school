@@ -229,6 +229,8 @@ ul
 	text-align: center
 	border: 5px solid #000
 	border-radius: 20px
+	position: relative
+	overflow: visible
 	&--simple
 		width: 400px
 		padding: 40px 50px 50px 40px
@@ -242,6 +244,14 @@ ul
 		margin: 0 0 1em
 		&:last-child
 			margin: 0
+	&__notation
+		line-height: 20/18*1
+		position: absolute
+		top: calc(100% + 10px)
+		left: 0
+		width: 100%
+		color: #fff
+		text-align: center
 /*классы-модификаторы*/
 .text
 	&-center
@@ -258,15 +268,64 @@ ul
 	img
 		display: block
 		width: 100%
+.menu-btn
+	display: none
+	width: 40px
+	height: 40px
+	position: relative
+	z-index: 4
+	flex: 0 0 auto
+	&:before,&:after
+		content: ''
+		display: block
+		position: absolute
+		width: 30px
+		border-top: 2px solid
+		transition: all .3s ease
+		left: 5px
+	&:before
+		border-bottom: 2px solid
+		height: 20px
+		position: absolute
+		top: 10px
+		transition: all .2s ease-in
+	&:after
+		top: calc(50% - 1px)
+	&.active
+		&:before
+			border-width: 1px
+			height: 2px
+			top: calc(50% - 1px)
+			transform: rotate(-45deg)
+		&:after
+			transform: rotate(45deg)
 .header
-	position: absolute
+	position: fixed
 	top: 0
 	left: 0
 	width: 100%
-	padding: 40px 0
+	padding: 21px 0
 	z-index: 2
+	transition: all .2s ease
+	&.fixed
+		background-color: #fff
+		padding: 0
+		box-shadow: 0 2px 10px rgba(0,0,0,.12)
+	&__wrapper
+		display: flex
+		align-items: center
+		justify-content: space-between
 	&__logo
 		width: 200px
+	&__menu
+		+unlist		
+		>li
+			display: inline-block
+			margin-left: 1.5em
+			>a
+				display: block
+				padding: 18px 0 22px
+				text-decoration: none
 /*ОСНОВНОЕ СОДЕРЖИМОЕ*/
 .top-block
 	padding: 113px 0
@@ -536,17 +595,7 @@ ul
 			fill: #fff
 			stroke: #000
 			stroke-width: 5px
-			vector-effect: non-scaling-stroke
-	&__item-footer
-		display: flex
-		align-items: center
-		justify-content: space-between
-		justify-content: space-evenly
-		position: absolute
-		bottom: 0
-		left: 0
-		width: 100%
-		transform: translateY(calc(50% - 2.5px))
+			vector-effect: non-scaling-stroke		
 	&__caption
 		display: inline-block
 		background-color: $brown
@@ -556,7 +605,14 @@ ul
 		color: #fff
 		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.19)
 		padding: 0 .75em
-		margin: 0 5px
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+		max-width: 100%
+		position: absolute
+		top: 100%
+		left: 50%
+		transform: translate(-50%, calc(-50% - 2.5px))
 .card
 	width: 570px
 	margin: 0 10px 20px
